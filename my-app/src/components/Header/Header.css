@@ -1,0 +1,18 @@
+.header{
+    background-color: black;
+    display: flex;
+    padding: 15px;
+    justify-content: space-around;   
+}
+
+.header a{
+    color: #fff;
+    text-decoration: none; 
+    font-size:20px;
+    margin: 0 15px;
+}
+
+.header a:hover{
+    text-decoration: underline;
+    color: #e5dddd;
+}
