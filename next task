@@ -1,0 +1,6 @@
+1. create a registration from 
+2. add Name, username, password
+3. username should be email--validation needs to be there
+4. On submit it should redirect to Login page with success message Registration succes full.
+5. Now login with the username/password---Validate
+6. Now show the name for this user in the header
