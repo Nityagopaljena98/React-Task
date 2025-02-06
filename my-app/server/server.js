@@ -10,14 +10,14 @@ configDotenv()
 
 const app = express()
 
+
 // Middleware APi 
 app.use(cors({ origin: "http://localhost:3000" })) // corss server access
 app.use(express.json())
 
 
 
-
-//Routes For Signup 
+//Routes
 app.use('/api/auth', authRoutes);
 
 

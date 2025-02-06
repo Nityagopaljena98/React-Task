@@ -12,31 +12,33 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
- // Logic for fixed bg color for Login
- useEffect(() => {
-  document.body.classList.add('login-bg');
-  return () => {
-    document.body.classList.remove('login-bg');
-  };
-}, []);
-
+  // Logic for fixed bg color for Login
+  useEffect(() => {
+    document.body.classList.add('login-bg');
+    return () => {
+      document.body.classList.remove('login-bg');
+    };
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
-    // window.location.href = '/home';
 
     try {
       const response = await axios.post('http://localhost:4000/api/auth/login', { username, password });
-      alert(response.data.message); 
+
+      // Store JWT token and username in sessionStorage
+      sessionStorage.setItem('token', response.data.token);
+      sessionStorage.setItem('username', username);
+
+      alert(response.data.message);
       navigate('/home');
-      
+      window.location.reload()
     } catch (error) {
-      setError(error.response?.data?.message || "Login failed!");
+      setError(error.response?.data?.message || 'Login failed!');
     }
   };
 
- 
   return (
     <>
       <div className='login'>
