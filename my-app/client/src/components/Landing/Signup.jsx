@@ -29,8 +29,7 @@ const Signup = () => {
     try {
       const response = await axios.post('http://localhost:4000/api/auth/signup', formData);
       alert(response.data.message);
-      navigate('/');  // Redirected to the login page
-      
+      navigate('/'); // Redirected to the login page
     } catch (error) {
       alert(error.response?.data?.message || 'Signup failed!');
     }
@@ -59,7 +58,16 @@ const Signup = () => {
                 </label>
               </td>
               <td>
-                <input type='email' name='username' id='username' placeholder='Enter email as a username' onChange={handleChange}  required />
+                <input type='text' name='username' id='username' placeholder='Enter username' onChange={handleChange} required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label htmlFor='email' style={{ color: 'white' }}>Email</label>
+              </td>
+              <td>
+                <input type='email' name='email' id='email' placeholder='Enter your email' onChange={handleChange} required />
               </td>
             </tr>
 
@@ -70,7 +78,7 @@ const Signup = () => {
                 </label>
               </td>
               <td>
-                <input type='password' name='password' id='password' placeholder='Enter password' onChange={handleChange}  required />
+                <input type='password' name='password' id='password' placeholder='Enter password' onChange={handleChange} required />
               </td>
             </tr>
 
