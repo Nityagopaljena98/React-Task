@@ -59,7 +59,7 @@ const Login = () => {
       <div className='login-bg'>
         <div className='login-box'>
           <form onSubmit={handleSubmit}>
-            <h2>Login Form</h2>
+            <h2>Welcome Back!</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <table>
               <tbody>
@@ -103,7 +103,7 @@ const Login = () => {
                 <tr>
                   <td colSpan='2'>
                     <button type='submit' className='login-btn'>
-                      Login
+                      Log in
                     </button>
                   </td>
                 </tr>

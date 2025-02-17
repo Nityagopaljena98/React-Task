@@ -50,7 +50,7 @@ const Signup = () => {
       <div className='signup-bg'>
         <div className='signup-box'>
           <form onSubmit={handleSubmit}>
-            <h2>Signup Form</h2>
+            <h2>Create a account!</h2>
             <table>
               <tbody>
                 <tr>
@@ -97,14 +97,14 @@ const Signup = () => {
                 <tr>
                   <td colSpan='2'>
                     <button type='submit' className='signup-btn'>
-                      SignUp
+                      Sign Up
                     </button>
                   </td>
                 </tr>
               </tbody>
             </table>
             <p className='login-link'>
-              Already have an account? <Link to='/'>Login</Link>
+              Already have an account? <Link to='/'>Log in</Link>
             </p>
           </form>
         </div>

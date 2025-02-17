@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 .login-bg {
     background-color: #120328;
 }
@@ -14,18 +18,20 @@
     height: auto;
     padding: 30px;
     align-items: center;
+    justify-content: center;
     margin: 180px 550px;
 }
 
 
 h2 {
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 10px;
     color: #c2cc04;
     background-image: linear-gradient(45deg, #c2cc04 52%, #54f2b2 21%, #87bdf6 72%, #7060dc 85%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+     
 
 }
 
@@ -65,8 +71,11 @@ input {
     background: transparent;
     border-radius: 6px;
     font-size: 14px;
-    margin-top: 15px;
+    margin-top: 12px;
     color: #f3f3f3;
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 
@@ -99,6 +108,7 @@ input:focus {
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition: 0.3s;
 }
 
