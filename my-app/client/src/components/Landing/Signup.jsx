@@ -9,7 +9,7 @@ import './Signup.css';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ name: '', username: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', username: '', email: '', password: '' });
 
   // Logic for fixed-bg color for Signup
   useEffect(() => {

@@ -100,13 +100,13 @@ input {
 
 .login-link {
     margin-top: 15px;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     color: #fff;
   }
   
   .login-link a {
-    color: #007bff;
+    color: #9c17f5;
     text-decoration: none;
     font-weight: bold;
     margin-left: 6px;

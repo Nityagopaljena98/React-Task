@@ -13,9 +13,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
+
   const navigate = useNavigate();
-
-
 
   // Logic for fixed bg color for Login
   useEffect(() => {
@@ -34,7 +33,7 @@ const Login = () => {
 
       // Store JWT token and username in sessionStorage
       sessionStorage.setItem('token', response.data.token);
-      sessionStorage.setItem('username', username);
+      sessionStorage.setItem('username', response.data.username);
 
       alert(response.data.message);
       navigate('/home');
@@ -55,8 +54,6 @@ const Login = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-
-
   return (
     <>
       <div className='login-bg'>
@@ -71,7 +68,15 @@ const Login = () => {
                     <label htmlFor='username'>Username</label>
                   </td> */}
                   <td>
-                    <input type='text' name='username' id='username' placeholder='Your username' value={username} required onChange={(e) => setUsername(e.target.value)} />
+                    <input
+                      type='text'
+                      name='username'
+                      id='username'
+                      placeholder='Enter username or email'
+                      value={username}
+                      required
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
                   </td>
                 </tr>
 
@@ -80,10 +85,18 @@ const Login = () => {
                     <label htmlFor='password'>Password</label>
                   </td> */}
                   <td>
-                    <input  type={passwordVisible ? 'text' : 'password'} name='password' id='password' placeholder='Your password' value={password} required onChange={(e) => setPassword(e.target.value)}  />
+                    <input
+                      type={passwordVisible ? 'text' : 'password'}
+                      name='password'
+                      id='password'
+                      placeholder='Your password'
+                      value={password}
+                      required
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
                     <span onClick={togglePasswordVisibility} className='eye-icon'>
-                    {passwordVisible ? <FaEye size={24} /> : <FaEyeSlash size={24} />}
-                  </span>
+                      {passwordVisible ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
+                    </span>
                   </td>
                 </tr>
 

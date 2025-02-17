@@ -1,16 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
+// import Landing page 
 import Login from './components/Landing/Login';
 import Signup from './components/Landing/Signup';
 
+// import All pages 
 import Home from './components/Pages/Home';
 import Service from './components/Pages/Service';
 import About from './components/Pages/About';
 import Contact from './components/Pages/Contact';
+
+// import EditProfile component 
+import EditProfile from './components/EditProfile/EditProfile';
+
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -40,6 +45,7 @@ const App = () => {
             <Route path='/service' element={<Service />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
+            <Route path='/edit-profile' element={<EditProfile/>} />
           </Routes>
         </Layout>
       </Router>

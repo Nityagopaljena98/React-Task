@@ -82,7 +82,7 @@ input:focus {
     position: absolute;
     top: 50%;
     right: 50px;
-    transform: translateY(-20%);
+    /* transform: translateY(-20%); */
     cursor: pointer;
     color: #fff;
   }
@@ -115,13 +115,13 @@ input:focus {
 
 .signup-link {
     margin-top: 15px;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     color: #fff;
 }
 
 .signup-link a {
-    color: #007bff;
+    color: #9c17f5;
     text-decoration: none;
     font-weight: bold;
     margin-left: 6px;
