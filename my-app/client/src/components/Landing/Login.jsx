@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 
 // import Login css file
@@ -10,7 +12,10 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
+
+
 
   // Logic for fixed bg color for Login
   useEffect(() => {
@@ -33,53 +38,69 @@ const Login = () => {
 
       alert(response.data.message);
       navigate('/home');
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       setError(error.response?.data?.message || 'Login failed!');
     }
   };
 
+  window.addEventListener('load', function () {
+    var firstInput = document.getElementById('username');
+    if (firstInput) {
+      firstInput.focus();
+    }
+  });
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+
+
   return (
     <>
-      <div className='login'>
-        <form onSubmit={handleSubmit}>
-          <h2>Login Form</h2>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-          <table>
-            <tr>
-              <td>
-                <label htmlFor='username' style={{ color: 'white' }}>
-                  Username
-                </label>
-              </td>
-              <td>
-                <input type='text' name='username' id='username' placeholder='Enter username' value={username} required onChange={(e) => setUsername(e.target.value)} />
-              </td>
-            </tr>
+      <div className='login-bg'>
+        <div className='login-box'>
+          <form onSubmit={handleSubmit}>
+            <h2>Login Form</h2>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <table>
+              <tbody>
+                <tr>
+                  {/* <td>
+                    <label htmlFor='username'>Username</label>
+                  </td> */}
+                  <td>
+                    <input type='text' name='username' id='username' placeholder='Your username' value={username} required onChange={(e) => setUsername(e.target.value)} />
+                  </td>
+                </tr>
 
-            <tr>
-              <td>
-                <label htmlFor='password' style={{ color: 'white' }}>
-                  Password
-                </label>
-              </td>
-              <td>
-                <input type='password' name='password' id='password' placeholder='Enter password' value={password} required onChange={(e) => setPassword(e.target.value)} />
-              </td>
-            </tr>
+                <tr>
+                  {/* <td>
+                    <label htmlFor='password'>Password</label>
+                  </td> */}
+                  <td>
+                    <input  type={passwordVisible ? 'text' : 'password'} name='password' id='password' placeholder='Your password' value={password} required onChange={(e) => setPassword(e.target.value)}  />
+                    <span onClick={togglePasswordVisibility} className='eye-icon'>
+                    {passwordVisible ? <FaEye size={24} /> : <FaEyeSlash size={24} />}
+                  </span>
+                  </td>
+                </tr>
 
-            <tr>
-              <td>
-                <button type='submit'>Login</button>
-              </td>
-              <td>
-                <button type='submit' onClick={() => navigate('/signup')}>
-                  Signup
-                </button>
-              </td>
-            </tr>
-          </table>
-        </form>
+                <tr>
+                  <td colSpan='2'>
+                    <button type='submit' className='login-btn'>
+                      Login
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p className='signup-link'>
+              Don't have an account? <Link to='/signup'>Sign up</Link>
+            </p>
+          </form>
+        </div>
       </div>
     </>
   );

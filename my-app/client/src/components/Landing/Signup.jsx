@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 // import Signup css file
 import './Signup.css';
 
@@ -35,60 +37,77 @@ const Signup = () => {
     }
   };
 
+  window.addEventListener('load', function () {
+    var firstInput = document.getElementById('name');
+    if (firstInput) {
+      firstInput.focus();
+    }
+  });
+
+
   return (
     <>
-      <div className='signup'>
-        <form onSubmit={handleSubmit}>
-          <h2>Signup Form</h2>
-          <table>
-            <tr>
-              <td>
-                <label htmlFor='name' style={{ color: 'white' }}>
-                  Name
-                </label>
-              </td>
-              <td>
-                <input type='text' name='name' placeholder='Enter your name' id='name' onChange={handleChange} required />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor='username' style={{ color: 'white' }}>
-                  Username
-                </label>
-              </td>
-              <td>
-                <input type='text' name='username' id='username' placeholder='Enter username' onChange={handleChange} required />
-              </td>
-            </tr>
+      <div className='signup-bg'>
+        <div className='signup-box'>
+          <form onSubmit={handleSubmit}>
+            <h2>Signup Form</h2>
+            <table>
+              <tbody>
+                <tr>
+                  {/* <td>
+                    <label htmlFor='name'>Name</label>
+                  </td> */}
+                  <td>
+                    <input type='text' name='name' id='name' placeholder='Full Name' onChange={handleChange} required />
+                  </td>
+                </tr>
+                <tr>
+                  {/* <td>
+                    <label htmlFor='username'>Username</label>
+                  </td> */}
+                  <td>
+                    <input type='text' name='username' id='username' placeholder='Username' onChange={handleChange} required />
+                  </td>
+                </tr>
+                <tr>
+                  {/* <td>
+                    <label htmlFor='email'>Email</label>
+                  </td> */}
+                  <td>
+                    <input type='email' name='email' id='email' placeholder='Enter Email' onChange={handleChange} required />
+                  </td>
+                </tr>
+                <tr>
+                  {/* <td>
+                    <label htmlFor='password'>Password</label>
+                  </td> */}
 
-            <tr>
-              <td>
-                <label htmlFor='email' style={{ color: 'white' }}>Email</label>
-              </td>
-              <td>
-                <input type='email' name='email' id='email' placeholder='Enter your email' onChange={handleChange} required />
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <label htmlFor='password' style={{ color: 'white' }}>
-                  Password
-                </label>
-              </td>
-              <td>
-                <input type='password' name='password' id='password' placeholder='Enter password' onChange={handleChange} required />
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button type='submit'>SignUp</button>
-              </td>
-            </tr>
-          </table>
-        </form>
+                  <td>
+                  <input
+                    type= 'password'
+                    name='password'
+                    id='password'
+                    placeholder='Your password'
+                    value={formData.password}
+                    required
+                    onChange={handleChange}
+                  />
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan='2'>
+                    <button type='submit' className='signup-btn'>
+                      SignUp
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p className='login-link'>
+              Already have an account? <Link to='/'>Login</Link>
+            </p>
+          </form>
+        </div>
       </div>
     </>
   );
