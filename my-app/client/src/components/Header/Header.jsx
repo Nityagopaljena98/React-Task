@@ -23,7 +23,7 @@ const Header = () => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('username');
     setUsername('');
-    window.location.reload(); // Refresh the page to update the header
+    navigate('/home')
   };
 
   // Go to the EditProfile Page 

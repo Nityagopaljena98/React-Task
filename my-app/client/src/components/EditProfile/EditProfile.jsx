@@ -1,7 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './EditProfile.css';
 
 const EditProfile = () => {
+ 
+  const navigate = useNavigate()
+  
+  const ChangePasswordBtn = () => {
+    navigate('/edit-profile-password')
+  }
+ 
+
   return (
     <div className='edit-profile'>
       <div className='profile-details'>
@@ -25,9 +34,13 @@ const EditProfile = () => {
             <input type='email' name='email' id='email' value='' />
           </div>
 
-          <div className='save'>
+          <div className='button-group'>
             <button type='submit' className='save-btn'>
               Save
+            </button>
+
+            <button type='button' className='change-btn' onClick={ChangePasswordBtn}  >
+              Change Password
             </button>
           </div>
         </form>

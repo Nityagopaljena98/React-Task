@@ -15,6 +15,7 @@ import Contact from './components/Pages/Contact';
 
 // import EditProfile component 
 import EditProfile from './components/EditProfile/EditProfile';
+import ChangePassword from './components/EditProfile/ChangePassword';
 
 
 const Layout = ({ children }) => {
@@ -45,7 +46,8 @@ const App = () => {
             <Route path='/service' element={<Service />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
-            <Route path='/edit-profile' element={<EditProfile/>} />
+            <Route path='/edit-profile' element={<EditProfile />} />
+            <Route path='/edit-profile-password' element={<ChangePassword />} />
           </Routes>
         </Layout>
       </Router>
